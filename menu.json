@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "nama": "Nasi Pecel Madiun",
+    "harga": 12000,
+    "gambar": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400",
+    "status": "Tersedia"
+  },
+  {
+    "id": 2,
+    "nama": "Es Teh Manis",
+    "harga": 3000,
+    "gambar": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400",
+    "status": "Habis"
+  }
+]
