@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>KantinPintar - Kasir Mini</title>
+
+    <!-- MEMANGGIL PUSTAKA VUE 3 VIA CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
     <!-- BAGIAN CSS: Mengatur tata letak dan keindahan halaman web -->
     <style>
@@ -116,11 +119,11 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div id="app" class="container">
         <!-- Bagian Kepala Halaman Web -->
         <header>
             <h1>KantinPintar - Kasir Mini</h1>
-            <p>Tahap 1: Membuat Struktur Halaman Utama</p>
+            <p>Tahap 2: Menampilkan Menu Dinamis dengan Vue 3</p>
         </header>
 
         <!-- Area Tata Letak Utama -->
@@ -147,21 +150,54 @@
                 <button class="btn-simpan">Simpan ke Menu</button>
             </div>
 
-            <!-- PANEL SEBELAH KANAN: ETALASE PRODUK -->
-            <div class="etalase-panel">
-                
-                <!-- Contoh elemen kartu menu statis -->
-                <div class="card-menu">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400" alt="Makanan">
-                    <div class="card-info">
-                        <h3>Nasi Pecel Madiun</h3>
-                        <div class="harga">Rp 12.000</div>
-                    </div>
-                </div>
-
-            </div>
-            
+           <!-- PANEL ETALASE PRODUK -->
+<div class="etalase-panel">
+    
+    <!-- v-for akan menduplikasi div ini otomatis sesuai jumlah item di daftarProduk -->
+    <div class="card-menu" v-for="produk in daftarProduk" :key="produk.id">
+        <!-- Binding atribut gambar dengan tanda titik dua (:) -->
+        <img :src="produk.gambar" :alt="produk.nama">
+        
+        <div class="card-info">
+            <!-- Interpolation {{ }} untuk menampilkan teks nama & harga -->
+            <h3>{{ produk.nama }}</h3>
+            <div class="harga">Rp {{ produk.harga }}</div>
         </div>
     </div>
+
+</div>
+            
+        </div>
+
+    </div>
+</body>
+<!-- SKRIP VUE 3: OTAK PENGELOLA DATA -->
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    // Data menu makanan yang tersimpan dalam bentuk Array
+                    daftarProduk: [
+                        {
+                            id: 1,
+                            nama: "Nasi Pecel Madiun",
+                            harga: 12000,
+                            gambar: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400",
+                            status: "Tersedia"
+                        },
+                        {
+                            id: 2,
+                            nama: "Es Teh Manis",
+                            harga: 3000,
+                            gambar: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400",
+                            status: "Habis"
+                        }
+                    ]
+                }
+            }
+        }).mount('#app'); // Mengikat Vue ke elemen dengan id="app"
+    </script>
 </body>
 </html>
