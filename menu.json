@@ -12,7 +12,15 @@
     "harga": 3000,
     "gambar": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400",
     "status": "Habis"
-  }
+  },
+  {
+  "id": 3,
+  "nama": "Bakso Bakar",
+  "harga": 10000,
+  "gambar": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400",
+  "status": "Tersedia"
+}
+
 ]
 
 
